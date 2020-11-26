@@ -1,0 +1,35 @@
+Rx Seminar
+1. About Rx
+	- Rx là gì?
+		- Observer pattern
+		- Iterator pattern
+		- Functional programing
+	- Why Rx?
+		- Ubiquitous
+			- Frontend
+			- Crossplatform
+			- Backend
+		- Better codebase
+			- Functional
+			- Less is more
+			- Async error handling
+			- Concurrency made easy
+2. Understanding about Rx
+	- A Simple case
+	- http://reactivex.io/intro.html, https://gist.github.com/staltz/868e7e9bc2a7b8c1f754 
+	- Marble diagram https://medium.com/@navdeepsingh_2336/marble-diagrams-an-overview-e04462c75175
+	- Hot observable vs cold https://medium.com/@luukgruijs/understanding-hot-vs-cold-observables-62d04cf92e03
+3. Rx elements
+	- Observable http://reactivex.io/documentation/observable.html
+	- Operator http://reactivex.io/documentation/operators.html
+	- Single http://reactivex.io/documentation/single.html
+	- Subject http://reactivex.io/documentation/subject.html
+	- Scheduler
+4. Usecase
+	- Dodge multiclick
+	- Textchange events
+	- Api chaining, retry, combine
+	- Time interval
+	- Array operation
+	- Asynchronous operatiom
+

@@ -1,0 +1,656 @@
+<!DOCTYPE html><html><head>
+      <title>RxSeminar</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      
+      <link rel="stylesheet" href="file:////Users/du.nguyenhuy/.vscode/extensions/shd101wyy.markdown-preview-enhanced-0.5.3/node_modules/@shd101wyy/mume/dependencies/katex/katex.min.css">
+      
+      
+
+      
+      
+      
+      
+      
+      
+      
+
+      <style>
+      /**
+ * prism.js Github theme based on GitHub's theme.
+ * @author Sam Clarke
+ */
+code[class*="language-"],
+pre[class*="language-"] {
+  color: #333;
+  background: none;
+  font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
+  text-align: left;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  word-wrap: normal;
+  line-height: 1.4;
+
+  -moz-tab-size: 8;
+  -o-tab-size: 8;
+  tab-size: 8;
+
+  -webkit-hyphens: none;
+  -moz-hyphens: none;
+  -ms-hyphens: none;
+  hyphens: none;
+}
+
+/* Code blocks */
+pre[class*="language-"] {
+  padding: .8em;
+  overflow: auto;
+  /* border: 1px solid #ddd; */
+  border-radius: 3px;
+  /* background: #fff; */
+  background: #f5f5f5;
+}
+
+/* Inline code */
+:not(pre) > code[class*="language-"] {
+  padding: .1em;
+  border-radius: .3em;
+  white-space: normal;
+  background: #f5f5f5;
+}
+
+.token.comment,
+.token.blockquote {
+  color: #969896;
+}
+
+.token.cdata {
+  color: #183691;
+}
+
+.token.doctype,
+.token.punctuation,
+.token.variable,
+.token.macro.property {
+  color: #333;
+}
+
+.token.operator,
+.token.important,
+.token.keyword,
+.token.rule,
+.token.builtin {
+  color: #a71d5d;
+}
+
+.token.string,
+.token.url,
+.token.regex,
+.token.attr-value {
+  color: #183691;
+}
+
+.token.property,
+.token.number,
+.token.boolean,
+.token.entity,
+.token.atrule,
+.token.constant,
+.token.symbol,
+.token.command,
+.token.code {
+  color: #0086b3;
+}
+
+.token.tag,
+.token.selector,
+.token.prolog {
+  color: #63a35c;
+}
+
+.token.function,
+.token.namespace,
+.token.pseudo-element,
+.token.class,
+.token.class-name,
+.token.pseudo-class,
+.token.id,
+.token.url-reference .token.variable,
+.token.attr-name {
+  color: #795da3;
+}
+
+.token.entity {
+  cursor: help;
+}
+
+.token.title,
+.token.title .token.punctuation {
+  font-weight: bold;
+  color: #1d3e81;
+}
+
+.token.list {
+  color: #ed6a43;
+}
+
+.token.inserted {
+  background-color: #eaffea;
+  color: #55a532;
+}
+
+.token.deleted {
+  background-color: #ffecec;
+  color: #bd2c00;
+}
+
+.token.bold {
+  font-weight: bold;
+}
+
+.token.italic {
+  font-style: italic;
+}
+
+
+/* JSON */
+.language-json .token.property {
+  color: #183691;
+}
+
+.language-markup .token.tag .token.punctuation {
+  color: #333;
+}
+
+/* CSS */
+code.language-css,
+.language-css .token.function {
+  color: #0086b3;
+}
+
+/* YAML */
+.language-yaml .token.atrule {
+  color: #63a35c;
+}
+
+code.language-yaml {
+  color: #183691;
+}
+
+/* Ruby */
+.language-ruby .token.function {
+  color: #333;
+}
+
+/* Markdown */
+.language-markdown .token.url {
+  color: #795da3;
+}
+
+/* Makefile */
+.language-makefile .token.symbol {
+  color: #795da3;
+}
+
+.language-makefile .token.variable {
+  color: #183691;
+}
+
+.language-makefile .token.builtin {
+  color: #0086b3;
+}
+
+/* Bash */
+.language-bash .token.keyword {
+  color: #0086b3;
+}
+
+/* highlight */
+pre[data-line] {
+  position: relative;
+  padding: 1em 0 1em 3em;
+}
+pre[data-line] .line-highlight-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: transparent;
+  display: block;
+  width: 100%;
+}
+
+pre[data-line] .line-highlight {
+  position: absolute;
+  left: 0;
+  right: 0;
+  padding: inherit 0;
+  margin-top: 1em;
+  background: hsla(24, 20%, 50%,.08);
+  background: linear-gradient(to right, hsla(24, 20%, 50%,.1) 70%, hsla(24, 20%, 50%,0));
+  pointer-events: none;
+  line-height: inherit;
+  white-space: pre;
+}
+
+pre[data-line] .line-highlight:before, 
+pre[data-line] .line-highlight[data-end]:after {
+  content: attr(data-start);
+  position: absolute;
+  top: .4em;
+  left: .6em;
+  min-width: 1em;
+  padding: 0 .5em;
+  background-color: hsla(24, 20%, 50%,.4);
+  color: hsl(24, 20%, 95%);
+  font: bold 65%/1.5 sans-serif;
+  text-align: center;
+  vertical-align: .3em;
+  border-radius: 999px;
+  text-shadow: none;
+  box-shadow: 0 1px white;
+}
+
+pre[data-line] .line-highlight[data-end]:after {
+  content: attr(data-end);
+  top: auto;
+  bottom: .4em;
+}html body{font-family:"Helvetica Neue",Helvetica,"Segoe UI",Arial,freesans,sans-serif;font-size:16px;line-height:1.6;color:#333;background-color:#fff;overflow:initial;box-sizing:border-box;word-wrap:break-word}html body>:first-child{margin-top:0}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{line-height:1.2;margin-top:1em;margin-bottom:16px;color:#000}html body h1{font-size:2.25em;font-weight:300;padding-bottom:.3em}html body h2{font-size:1.75em;font-weight:400;padding-bottom:.3em}html body h3{font-size:1.5em;font-weight:500}html body h4{font-size:1.25em;font-weight:600}html body h5{font-size:1.1em;font-weight:600}html body h6{font-size:1em;font-weight:600}html body h1,html body h2,html body h3,html body h4,html body h5{font-weight:600}html body h5{font-size:1em}html body h6{color:#5c5c5c}html body strong{color:#000}html body del{color:#5c5c5c}html body a:not([href]){color:inherit;text-decoration:none}html body a{color:#08c;text-decoration:none}html body a:hover{color:#00a3f5;text-decoration:none}html body img{max-width:100%}html body>p{margin-top:0;margin-bottom:16px;word-wrap:break-word}html body>ul,html body>ol{margin-bottom:16px}html body ul,html body ol{padding-left:2em}html body ul.no-list,html body ol.no-list{padding:0;list-style-type:none}html body ul ul,html body ul ol,html body ol ol,html body ol ul{margin-top:0;margin-bottom:0}html body li{margin-bottom:0}html body li.task-list-item{list-style:none}html body li>p{margin-top:0;margin-bottom:0}html body .task-list-item-checkbox{margin:0 .2em .25em -1.8em;vertical-align:middle}html body .task-list-item-checkbox:hover{cursor:pointer}html body blockquote{margin:16px 0;font-size:inherit;padding:0 15px;color:#5c5c5c;border-left:4px solid #d6d6d6}html body blockquote>:first-child{margin-top:0}html body blockquote>:last-child{margin-bottom:0}html body hr{height:4px;margin:32px 0;background-color:#d6d6d6;border:0 none}html body table{margin:10px 0 15px 0;border-collapse:collapse;border-spacing:0;display:block;width:100%;overflow:auto;word-break:normal;word-break:keep-all}html body table th{font-weight:bold;color:#000}html body table td,html body table th{border:1px solid #d6d6d6;padding:6px 13px}html body dl{padding:0}html body dl dt{padding:0;margin-top:16px;font-size:1em;font-style:italic;font-weight:bold}html body dl dd{padding:0 16px;margin-bottom:16px}html body code{font-family:Menlo,Monaco,Consolas,'Courier New',monospace;font-size:.85em !important;color:#000;background-color:#f0f0f0;border-radius:3px;padding:.2em 0}html body code::before,html body code::after{letter-spacing:-0.2em;content:"\00a0"}html body pre>code{padding:0;margin:0;font-size:.85em !important;word-break:normal;white-space:pre;background:transparent;border:0}html body .highlight{margin-bottom:16px}html body .highlight pre,html body pre{padding:1em;overflow:auto;font-size:.85em !important;line-height:1.45;border:#d6d6d6;border-radius:3px}html body .highlight pre{margin-bottom:0;word-break:normal}html body pre code,html body pre tt{display:inline;max-width:initial;padding:0;margin:0;overflow:initial;line-height:inherit;word-wrap:normal;background-color:transparent;border:0}html body pre code:before,html body pre tt:before,html body pre code:after,html body pre tt:after{content:normal}html body p,html body blockquote,html body ul,html body ol,html body dl,html body pre{margin-top:0;margin-bottom:16px}html body kbd{color:#000;border:1px solid #d6d6d6;border-bottom:2px solid #c7c7c7;padding:2px 4px;background-color:#f0f0f0;border-radius:3px}@media print{html body{background-color:#fff}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{color:#000;page-break-after:avoid}html body blockquote{color:#5c5c5c}html body pre{page-break-inside:avoid}html body table{display:table}html body img{display:block;max-width:100%;max-height:100%}html body pre,html body code{word-wrap:break-word;white-space:pre}}.markdown-preview{width:100%;height:100%;box-sizing:border-box}.markdown-preview .pagebreak,.markdown-preview .newpage{page-break-before:always}.markdown-preview pre.line-numbers{position:relative;padding-left:3.8em;counter-reset:linenumber}.markdown-preview pre.line-numbers>code{position:relative}.markdown-preview pre.line-numbers .line-numbers-rows{position:absolute;pointer-events:none;top:1em;font-size:100%;left:0;width:3em;letter-spacing:-1px;border-right:1px solid #999;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.markdown-preview pre.line-numbers .line-numbers-rows>span{pointer-events:none;display:block;counter-increment:linenumber}.markdown-preview pre.line-numbers .line-numbers-rows>span:before{content:counter(linenumber);color:#999;display:block;padding-right:.8em;text-align:right}.markdown-preview .mathjax-exps .MathJax_Display{text-align:center !important}.markdown-preview:not([for="preview"]) .code-chunk .btn-group{display:none}.markdown-preview:not([for="preview"]) .code-chunk .status{display:none}.markdown-preview:not([for="preview"]) .code-chunk .output-div{margin-bottom:16px}.scrollbar-style::-webkit-scrollbar{width:8px}.scrollbar-style::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}.scrollbar-style::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,0.66);border:4px solid rgba(150,150,150,0.66);background-clip:content-box}html body[for="html-export"]:not([data-presentation-mode]){position:relative;width:100%;height:100%;top:0;left:0;margin:0;padding:0;overflow:auto}html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{position:relative;top:0}@media screen and (min-width:914px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{padding:2em calc(50% - 457px + 2em)}}@media screen and (max-width:914px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{font-size:14px !important;padding:1em}}@media print{html body[for="html-export"]:not([data-presentation-mode]) #sidebar-toc-btn{display:none}}html body[for="html-export"]:not([data-presentation-mode]) #sidebar-toc-btn{position:fixed;bottom:8px;left:8px;font-size:28px;cursor:pointer;color:inherit;z-index:99;width:32px;text-align:center;opacity:.4}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] #sidebar-toc-btn{opacity:1}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc{position:fixed;top:0;left:0;width:300px;height:100%;padding:32px 0 48px 0;font-size:14px;box-shadow:0 0 4px rgba(150,150,150,0.33);box-sizing:border-box;overflow:auto;background-color:inherit}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar{width:8px}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,0.66);border:4px solid rgba(150,150,150,0.66);background-clip:content-box}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc a{text-decoration:none}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc ul{padding:0 1.6em;margin-top:.8em}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc li{margin-bottom:.8em}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc ul{list-style-type:none}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{left:300px;width:calc(100% -  300px);padding:2em calc(50% - 457px -  150px);margin:0;box-sizing:border-box}@media screen and (max-width:1274px){html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{width:100%}}html body[for="html-export"]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .markdown-preview{left:50%;transform:translateX(-50%)}html body[for="html-export"]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .md-sidebar-toc{display:none}
+/* Please visit the URL below for more information: */
+/*   https://shd101wyy.github.io/markdown-preview-enhanced/#/customize-css */
+
+      </style>
+    </head>
+    <body for="html-export">
+      <div class="mume markdown-preview  ">
+      <h1 class="mume-header" id="rx-seminar">Rx Seminar</h1>
+
+<p>&#xA9; 2020 <code>du.nguyenhuy@vti.com.vn</code> aka <code>fshdn19</code></p>
+<h2 class="mume-header" id="1-about-rx">1. About Rx</h2>
+
+<h3 class="mume-header" id="11-rx-l%C3%A0-g%C3%AC">1.1 Rx l&#xE0; g&#xEC;?</h3>
+
+<p><img src="files/meme_reactive.jpg#center" alt="img_meme_reactive"><br>
+RxDrugs, React, ReactNative and ReactiveX</p>
+<h3 class="mume-header" id="12-observer-pattern">1.2 Observer pattern</h3>
+
+<h4 class="mume-header" id="a-v%E1%BA%A5n-%C4%91%E1%BB%81">a. V&#x1EA5;n &#x111;&#x1EC1;</h4>
+
+<p><img src="files/meme_observer.jpg#center" alt="img_meme_observer"></p>
+<h4 class="mume-header" id="b-gi%E1%BA%A3i-ph%C3%A1p">b. Gi&#x1EA3;i ph&#xE1;p</h4>
+
+<p><img src="files/observer.png" alt="img_observer"></p>
+<ul>
+<li>T&#x1EA1;o ra c&#x1A1; ch&#x1EBF; &#x111;&#x1EC3; theo d&#xF5;i cho nhi&#x1EC1;u &#x111;&#x1ED1;i t&#x1B0;&#x1EE3;ng kh&#xE1;c nhau v&#x1EC1; m&#x1ED9;t (v&#xE0;i) s&#x1EF1; ki&#x1EC7;n n&#xE0;o &#x111;&#xF3; x&#x1EA3;y &#x111;&#x1EBF;n v&#x1EDB;i m&#x1ED9;t ch&#x1EE7; th&#x1EC3; m&#xE0; ch&#xFA;ng &#x111;ang &#x111;&#x1EC3; &#xFD; t&#x1EDB;i</li>
+<li>Minh h&#x1ECD;a th&#x1EF1;c t&#x1EBF; gi&#x1ED1;ng nh&#x1B0; c&#x1A1; ch&#x1EBF; theo d&#xF5;i c&#xE1; nh&#xE2;n, theo d&#xF5;i nh&#xF3;m tr&#xEA;n c&#xE1;c m&#x1EA1;ng x&#xE3; h&#x1ED9;i hi&#x1EC7;n t&#x1EA1;i ho&#x1EB7;c ng&#x1B0;&#x1EDD;i giao b&#xE1;o<br>
+<img src="files/observer_solution.png" alt="img_observer_solution"></li>
+</ul>
+<h4 class="mume-header" id="c-%C6%B0u-%C4%91i%E1%BB%83m">c. &#x1AF;u &#x111;i&#x1EC3;m:</h4>
+
+<ul>
+<li>Gi&#x1EA3;m thi&#x1EC3;u thao t&#xE1;c kh&#xF4;ng c&#x1EA7;n thi&#x1EBF;t (5s g&#x1ECD;i 1 l&#x1EA7;n &#x111;&#x1EC3; ki&#x1EC3;m tra thay &#x111;&#x1ED5;i ho&#x1EB7;c ch&#x1EE7; th&#x1EC3; li&#xEA;n t&#x1EE5;c g&#x1EED;i th&#xF4;ng b&#xE1;o &#x111;&#x1ECB;nh k&#x1EF3; cho t&#x1EA5;t c&#x1EA3; &#x111;&#x1ED1;i t&#x1B0;&#x1EE3;ng,...)</li>
+<li>T&#x1EA1;o m&#x1EDB;i c&#xE1;c l&#x1EAF;ng nghe m&#xE0; kh&#xF4;ng l&#xE0;m thay &#x111;&#x1ED5;i m&#xE3; ngu&#x1ED3;n c&#x1EE7;a ngu&#x1ED3;n ph&#xE1;t v&#xE0; ng&#x1B0;&#x1EE3;c l&#x1EA1;i</li>
+<li>T&#x1EA1;o li&#xEA;n k&#x1EBF;t gi&#x1EEF;a ch&#x1EE7; th&#x1EC3; v&#xE0; &#x111;&#x1ED1;i t&#x1B0;&#x1EE3;ng l&#x1EAF;ng nghe b&#x1EA5;t c&#x1EE9; khi n&#xE0;o (runtime)</li>
+</ul>
+<h4 class="mume-header" id="d-nh%C6%B0%E1%BB%A3c-%C4%91i%E1%BB%83m">d. Nh&#x1B0;&#x1EE3;c &#x111;i&#x1EC3;m:</h4>
+
+<ul>
+<li>C&#xE1;c &#x111;&#x1ED1;i t&#x1B0;&#x1EE3;ng l&#x1EAF;ng nghe s&#x1EBD; nh&#x1EAD;n &#x111;&#x1B0;&#x1EE3;c th&#xF4;ng b&#xE1;o theo th&#x1EE9; t&#x1EF1; ng&#x1EAB;u nhi&#xEA;n</li>
+</ul>
+<h3 class="mume-header" id="13-iterator-pattern">1.3 Iterator pattern</h3>
+
+<p><img src="files/iterator.png" alt="img_iterator"><br>
+T&#x1EA1;o ra c&#x1A1; ch&#x1EBF; &#x111;&#x1EC3; duy&#x1EC7;t qua m&#x1ED9;t m&#x1EA3;ng &#x111;&#x1ED1;i t&#x1B0;&#x1EE3;ng m&#xE0; kh&#xF4;ng b&#x1ECB; ph&#x1EE5; thu&#x1ED9;c v&#xE0;o l&#x1EDB;p ki&#x1EC3;u c&#x1EE7;a &#x111;&#x1ED1;i t&#x1B0;&#x1EE3;ng &#x111;&#xF3;<br>
+<img src="files/iterator_solution.png" alt="img_iterator_solution"></p>
+<h3 class="mume-header" id="14-functional-programing">1.4 Functional programing</h3>
+
+<p>R&#x1EA5;t ph&#x1ED5; bi&#x1EBF;n trong JavaScript</p>
+<ul>
+<li>Pure function:<br>
+Pure functions have lots of properties that are important in functional programming, including referential transparency (you can replace a function call with its resulting value without changing the meaning of the program)
+<ul>
+<li>&#x110;&#x1EA7;u v&#xE0;o nh&#x1B0; nhau th&#xEC; &#x111;&#x1EA7;u ra c&#x169;ng ph&#x1EA3;i nh&#x1B0; nhau</li>
+<li>Kh&#xF4;ng c&#xF3; t&#xE1;c d&#x1EE5;ng ph&#x1EE5; (<code>Changing something somewhere</code>)</li>
+</ul>
+</li>
+<li>Avoid shared state: Tr&#xE1;nh t&#x1ED3;n t&#x1EA1;i c&#xE1;c &#x111;&#x1ED1;i t&#x1B0;&#x1EE3;ng l&#x1B0;u gi&#x1EEF; tr&#x1EA1;ng th&#xE1;i gi&#x1EEF;a c&#xE1;c function</li>
+<li>Mutable data: D&#x1EEF; li&#x1EC7;u truy&#x1EC1;n v&#xE0;o th&#x1B0;&#x1EDD;ng &#x1EDF; d&#x1EA1;ng reference, vi&#x1EC7;c thay &#x111;&#x1ED5;i thu&#x1ED9;c t&#xED;nh n&#xE0;o &#x111;&#xF3; c&#x1EE7;a ch&#xFA;ng g&#xE2;y ra vi&#x1EC7;c thay &#x111;&#x1ED5;i tr&#x1EA1;ng th&#xE1;i c&#x1EE7;a &#x111;&#x1ED1;i t&#x1B0;&#x1EE3;ng &#x1EDF; b&#xEA;n ngo&#xE0;i ph&#x1EA1;m vi c&#x1EE7;a h&#xE0;m g&#x1ECD;i (ch&#xED;nh l&#xE0; t&#x1EA1;o ra 1 trong c&#xE1;c y&#x1EBF;u t&#x1ED1; c&#x1EE7;a side-effects)</li>
+<li>Declarative instead of imperative
+<ul>
+<li>Imperative:<pre data-role="codeBlock" data-info="java" class="language-java"><span class="token class-name">List</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Integer</span><span class="token punctuation">&gt;</span></span> result <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ArrayList</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token punctuation">&gt;</span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> number <span class="token operator">:</span> collection<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	<span class="token keyword">if</span> <span class="token punctuation">(</span>number <span class="token operator">&amp;</span> <span class="token number">1</span> <span class="token operator">!=</span> <span class="token number">0</span><span class="token punctuation">)</span> 
+		result<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span>number<span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+</pre></li>
+<li>Declarative<pre data-role="codeBlock" data-info="kotlin" class="language-kotlin"><span class="token keyword">val</span> result <span class="token operator">=</span> collection<span class="token punctuation">.</span><span class="token function">filter</span><span class="token punctuation">{</span>number <span class="token operator">and</span> <span class="token number">1</span> <span class="token operator">!=</span> <span class="token number">0</span><span class="token punctuation">}</span>
+</pre></li>
+</ul>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Imperative</th>
+<th style="text-align:left">Declarative</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">- Kh&#x1EDF;i t&#x1EA1;o m&#x1EA3;ng k&#x1EBF;t qu&#x1EA3; <br>- Duy&#x1EC7;t gi&#xE1; tr&#x1ECB; &#x111;&#x1EA7;u v&#xE0;o<br>- Ki&#x1EC3;m tra gi&#xE1; tr&#x1ECB;, n&#x1EBF;u l&#xE0; s&#x1ED1; l&#x1EBB; th&#xEC; th&#xEA;m v&#xE0;o<br> m&#x1EA3;ng k&#x1EBF;t q&#x1EE7;a</td>
+<td style="text-align:left">- T&#xF4;i mu&#x1ED1;n k&#x1EBF;t qu&#x1EA3; l&#xE0; t&#x1EA5;t c&#x1EA3; c&#xE1;c s&#x1ED1; l&#x1EBB;<br> trong m&#x1EA3;ng &#x111;&#x1EA7;u v&#xE0;o n&#xE0;y</td>
+</tr>
+</tbody>
+</table>
+<h3 class="mume-header" id="15-why-rx">1.5 Why Rx?</h3>
+
+<ul>
+<li>Ph&#x1ED5; bi&#x1EBF;n
+<ul>
+<li>Frontend:<br>
+Thao t&#xE1;c v&#x1EDB;i c&#xE1;c s&#x1EF1; ki&#x1EC7;n UI, ph&#x1EA3;n h&#x1ED3;i t&#x1EEB; API v&#x1EDB;i <code>RxJS</code>, <code>Rx.NET</code> v&#xE0; <code>RxJava</code>,...</li>
+<li>Crossplatform<br>
+&#x110;&#xE3; h&#x1ED7; tr&#x1EE3; cho <code>Java</code> <code>Scala</code> <code>C#</code> <code>C++</code> <code>Clojure</code> <code>JavaScript</code> <code>Python</code> <code>Groovy</code> <code>...</code></li>
+<li>Backend<br>
+T&#x1EAD;p trung v&#xE0;o t&#xED;nh b&#x1EA5;t &#x111;&#x1ED3;ng b&#x1ED9; c&#x1EE7;a <code>ReactiveX</code> &#x111;&#x1EC3; cho ph&#xE9;p th&#x1EF1;c hi&#x1EC7;n c&#xE1;c t&#xE1;c v&#x1EE5; <code>&#x111;&#x1ED3;ng th&#x1EDD;i</code> ho&#x1EB7;c <code>&#x111;&#x1ED9;c l&#x1EAD;p</code></li>
+</ul>
+</li>
+<li>Better codebase<br>
+<img src="files/better_codebase.png" alt="img_better_codebase"></li>
+</ul>
+<h2 class="mume-header" id="2-understanding-about-rx">2. Understanding about Rx</h2>
+
+<h3 class="mume-header" id="21-a-simple-case">2.1 A Simple case</h3>
+
+<pre data-role="codeBlock" data-info="kotlin" class="language-kotlin">Observable<span class="token punctuation">.</span><span class="token function">fromArray</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">,</span><span class="token number">6</span><span class="token punctuation">,</span><span class="token number">7</span><span class="token punctuation">,</span><span class="token number">8</span><span class="token punctuation">,</span><span class="token number">9</span><span class="token punctuation">,</span><span class="token number">10</span><span class="token punctuation">)</span>
+		<span class="token punctuation">.</span><span class="token function">filter</span><span class="token punctuation">{</span>it <span class="token operator">and</span> <span class="token number">1</span> <span class="token operator">!=</span> <span class="token number">0</span><span class="token punctuation">}</span>
+		<span class="token punctuation">.</span><span class="token function">subscribe</span><span class="token punctuation">{</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">&quot;Get <span class="token interpolation variable">$it</span>&quot;</span><span class="token punctuation">)</span><span class="token punctuation">}</span>
+</pre><p><code>CREATE</code> : D&#x1EC5; d&#xE0;ng kh&#x1EDF;i t&#x1EA1;o 1 lu&#x1ED3;ng d&#x1EEF; li&#x1EC7;u ho&#x1EB7;c 1 lu&#x1ED3;ng s&#x1EF1; ki&#x1EC7;n</p>
+<pre data-role="codeBlock" data-info="kotlin" class="language-kotlin">	Observable<span class="token punctuation">.</span><span class="token function">fromArray</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">,</span><span class="token number">6</span><span class="token punctuation">,</span><span class="token number">7</span><span class="token punctuation">,</span><span class="token number">8</span><span class="token punctuation">,</span><span class="token number">9</span><span class="token punctuation">,</span><span class="token number">10</span><span class="token punctuation">)</span>
+</pre><p><code>COMBINE</code>: &#x110;&#x1B0;a ra c&#xE1;c x&#x1EED; l&#xFD;, bi&#x1EBF;n &#x111;&#x1ED5;i d&#x1EEF; li&#x1EC7;u, s&#x1EF1; ki&#x1EC7;n</p>
+<pre data-role="codeBlock" data-info="kotlin" class="language-kotlin">		<span class="token punctuation">.</span><span class="token function">filter</span><span class="token punctuation">{</span>it <span class="token operator">and</span> <span class="token number">1</span> <span class="token operator">!=</span> <span class="token number">0</span><span class="token punctuation">}</span>
+</pre><p><code>LISTEN</code>: L&#x1EAF;ng nghe t&#x1EEB; c&#xE1;c lu&#x1ED3;ng <code>Observable</code> &#x111;&#x1EC3; th&#x1EF1;c thi c&#xE1;c h&#xE0;nh &#x111;&#x1ED9;ng kh&#xE1;c (hi&#x1EC3;n th&#x1ECB; l&#xEA;n giao di&#x1EC7;n,...)</p>
+<pre data-role="codeBlock" data-info="kotlin" class="language-kotlin">		<span class="token punctuation">.</span><span class="token function">subscribe</span><span class="token punctuation">{</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">&quot;Get <span class="token interpolation variable">$it</span>&quot;</span><span class="token punctuation">)</span><span class="token punctuation">}</span>
+</pre><h3 class="mume-header" id="22-marble-diagram">2.2 Marble diagram</h3>
+
+<p><img src="files/marble_diagram.png" alt="img_marble"></p>
+<ul>
+<li>M&#x169;i t&#xEA;n: d&#xF2;ng th&#x1EDD;i gian</li>
+<li>&#x110;&#x1B0;&#x1EDD;ng line tr&#xEA;n c&#xF9;ng: ngu&#x1ED3;n ph&#xE1;t <code>Observable</code></li>
+<li>Kh&#x1ED1;i block: C&#xE1;c x&#x1EED; l&#xFD; <code>Operation</code></li>
+<li>&#x110;&#x1B0;&#x1EDD;ng line cu&#x1ED1;i c&#xF9;ng: D&#x1EEF; li&#x1EC7;u ho&#x1EB7;c s&#x1EF1; ki&#x1EC7;n &#x1EDF; &#x111;&#x1ED1;i t&#x1B0;&#x1EE3;ng l&#x1EAF;ng nghe <code>Observer</code></li>
+<li>D&#x1EAB;u <code>X</code>: L&#x1ED7;i <code>Exception</code></li>
+<li>D&#x1EA5;u g&#x1EA1;ch d&#x1ECD;c: T&#xED;n hi&#xEA;&#x1EE5; k&#x1EBF;t th&#xFA;c <code>Completion</code></li>
+</ul>
+<h2 class="mume-header" id="3-rx-elements">3. Rx elements</h2>
+
+<h3 class="mume-header" id="31-observablehttpreactivexiodocumentationobservablehtml">3.1 <a href="http://reactivex.io/documentation/observable.html">Observable</a>:</h3>
+
+<ul>
+<li>&#x110;&#x1B0;&#x1EE3;c hi&#x1EC3;u nh&#x1B0; 1 &#x111;&#x1ED1;i t&#x1B0;&#x1EE3;ng ph&#xE1;t ra d&#x1EEF; li&#x1EC7;u ho&#x1EB7;c s&#x1EF1; ki&#x1EC7;n (t&#x1EEB; &#x111;&#xE2;y s&#x1EBD; g&#x1ECD;i l&#xE0; <code>item</code>)</li>
+<li>Th&#x1B0;&#x1EDD;ng &#x111;i v&#x1EDB;i vi&#x1EC7;c ph&#xE1;t ra d&#x1EEF; li&#x1EC7;u</li>
+<li>C&#xE1;c <code>Observer</code> &#x111;&#x103;ng k&#xFD; theo d&#xF5;i c&#xE1;c <code>Observable</code></li>
+<li>C&#xF3; th&#x1EC3; l&#xE0; 0, 1 ho&#x1EB7;c N <code>item</code></li>
+<li>D&#x1EEB;ng l&#x1EA1;i khi ph&#xE1;t sinh l&#x1ED7;i</li>
+</ul>
+<h3 class="mume-header" id="32-operatorhttpreactivexiodocumentationoperatorshtml">3.2 <a href="http://reactivex.io/documentation/operators.html">Operator</a>:</h3>
+
+<ul>
+<li>&#x110;&#x1B0;&#x1EE3;c chia c&#xE1;c lo&#x1EA1;i c&#x1A1; b&#x1EA3;n:
+<ul>
+<li>Kh&#x1EDF;i t&#x1EA1;o: <code>Create</code> <code>Defer</code> <code>Just/Empty/Never/Throw</code> <code>From...</code></li>
+<li>Bi&#x1EBF;n &#x111;&#x1ED5;i: <code>Buffer</code> <code>Map/FlatMap/ConcatMap</code> <code>Window</code></li>
+<li>L&#x1B0;&#x1EE3;c b&#x1ECF;: <code>Debounce</code> <code>Distict</code> <code>Filter</code> <code>...</code></li>
+<li>X&#x1EED; l&#xFD; l&#x1ED7;i: <code>Retry</code> <code>Catch</code></li>
+<li>Ti&#x1EC7;n &#xED;ch: <code>Delay</code> <code>Do...</code> <code>ObserverOn/SubscribeOn</code></li>
+<li><code>...</code></li>
+</ul>
+</li>
+<li>A Decision Tree of Observable Operators</li>
+</ul>
+<h3 class="mume-header" id="33-subjecthttpreactivexiodocumentationsubjecthtml">3.3 <a href="http://reactivex.io/documentation/subject.html">Subject</a></h3>
+
+<p><img src="files/subject.png" alt="img_subject"></p>
+<blockquote>
+<p>Khi b&#x1EAF;t &#x111;&#x1EA7;u v&#x1EDB;i Rx, th&#x1B0;&#x1EDD;ng s&#x1EBD; suy ngh&#x129; coi <code>Observer</code> nh&#x1B0; 1 <code>Consumer</code>, <code>Writer</code>, <code>Reader</code> c&#xF2;n <code>Observable</code> nh&#x1B0; 1 <code>Publisher</code> hay <code>Provider</code></p>
+<p>V&#x1EA5;n &#x111;&#x1EC1; ph&#xE1;t sinh khi b&#x1EA1;n t&#xEC;m c&#xE1;ch t&#x1EF1; t&#x1EA1;o ra 1 <code>Observable</code> t&#x1EEB; 1 ngu&#x1ED3;n d&#x1EEF; li&#x1EC7;u kh&#xF4;ng c&#xF3; s&#x1EB5;n (c&#xE1;c event,...) l&#xFA;c n&#xE0;y b&#x1EA1;n s&#x1EBD; c&#x1EA7;n 1 ph&#x1B0;&#x1A1;ng th&#x1EE9;c &#x111;&#x1EC3; c&#xF3; th&#x1EC3; &#x111;&#x1EA9;y ra item <code>onNext</code> &#x111;&#x1EA9;y ra l&#x1ED7;i <code>onError</code> ho&#x1EB7;c tuy&#xEA;n b&#x1ED1; k&#x1EBF;t th&#xFA;c <code>onComplete</code>. 3 Methods n&#xE0;y th&#x1EF1;c s&#x1EF1; gi&#x1ED1;ng v&#x1EDB;i 3 methods c&#x1EE7;a 1 <code>Observer</code>. L&#xFA;c n&#xE0;y th&#xEC; c&#xF3; v&#x1EBB; nh&#x1B0; n&#xF3; tr&#xF4;ng gi&#x1ED1;ng 1 <code>Observer</code> m&#x1EB7;c d&#xF9; &#xFD; t&#x1B0;&#x1EDF;ng khi b&#x1EAF;t &#x111;&#x1EA7;u n&#xF3; l&#xE0; 1 <code>Observable</code>. L&#xFA;c n&#xE0;y ch&#xFA;ng ta c&#x1EA7;n 1 l&#x1EDB;p implement c&#x1EA3; 2 interfaces k&#x1EC3; tr&#xEA;n</p>
+<p><strong>AND WE HAVE</strong> <code>Subject</code>. V&#x1EDB;i 1 <code>Subject</code>, b&#x1EA1;n ho&#xE0;n to&#xE0;n c&#xF3; th&#x1EC3; tr&#x1EA3; ra 1 &#x111;&#x1ED1;i t&#x1B0;&#x1EE3;ng ki&#x1EC3;u <code>Observable</code> &#x111;&#x1EC3; &#x111;&#x1ED1;i t&#x1B0;&#x1EE3;ng kh&#xE1;c l&#x1EAF;ng nghe. Nh&#x1B0;ng &#x111;&#x1ED3;ng th&#x1EDD;i trong &#x111;&#xF3;, b&#x1EA1;n c&#xF3; th&#x1EC3; g&#x1ECD;i c&#xE1;c ph&#x1B0;&#x1A1;ng th&#x1EE9;c <code>OnNext/OnError/OnComplete</code> &#x111;&#x1EC3; ki&#x1EC3;m so&#xE1;t d&#x1EEF; li&#x1EC7;u &#x111;&#x1B0;&#x1EE3;c ph&#xE1;t ra</p>
+</blockquote>
+<ul>
+<li><code>public abstract class Subject&lt;T&gt; extends Observable&lt;T&gt; implements Observer&lt;T&gt;</code></li>
+<li>Ph&#x1EE5;c v&#x1EE5; cho multi-casting</li>
+<li>C&#xF3; th&#x1EC3; coi nh&#x1B0; 1 <code>Observable</code> ho&#x1EB7;c 1 <code>Observer</code>
+<ul>
+<li>nh&#x1B0; 1 <code>Observer</code>: C&#xF3; th&#x1EC3; quan s&#xE1;t 1 ho&#x1EB7;c nhi&#x1EC1;u <code>Observable</code> kh&#xE1;c</li>
+<li>nh&#x1B0; 1 <code>Observable</code>: C&#xF3; th&#x1EC3; ph&#xE1;t l&#x1EA1;i c&#xE1;c <code>item</code> cho c&#xE1;c <code>Observer</code>...</li>
+</ul>
+</li>
+<li>Th&#x1B0;&#x1EDD;ng &#x1EE9;ng d&#x1EE5;ng &#x111;&#x1EC3; ph&#xE1;t ra c&#xE1;c <code>event</code> (hot observable)</li>
+<li>C&#xF3; nhi&#x1EC1;u lo&#x1EA1;i <code>Subject</code>
+<ul>
+<li><code>AsyncSubject</code>: B&#xE0;i to&#xE1;n v&#x1EC1; <code>c&#xE2;u h&#x1ECF;i tr&#x1EAF;c nghi&#x1EC7;m</code><br>
+<img src="files/s_async_subject.png" alt="img_subject_async"></li>
+<li><code>BehaviorSubject</code>: B&#xE0;i to&#xE1;n v&#x1EC1; <code>&#xF4; t&#xEC;m ki&#x1EBF;m</code>, <code>ui-switch</code><br>
+<img src="files/s_behavior_subject.png" alt="img_subject_behavior"></li>
+<li><code>PublishSubject</code>: B&#xE0;i to&#xE1;n v&#x1EC1; <code>s&#x1EF1; ki&#x1EC7;n click</code><br>
+<img src="files/s_publish_subject.png" alt="img_subject_publish"></li>
+<li><code>ReplaySubject</code>: T&#x1B0;&#x1A1;ng &#x111;&#x1ED3;ng v&#x1EDB;i <code>BehaviorSubject</code> nh&#x1B0;ng k&#xE8;m theo tham s&#x1ED1; <code>buffer</code>(th&#x1EDD;i gian ho&#x1EB7;c s&#x1ED1; l&#x1B0;&#x1EE3;ng item), c&#xF3; th&#x1EC3; nh&#x1EAD;n item k&#x1EC3; c&#x1EA3; khi ngu&#x1ED3;n &#x111;&#xE3; completed nh&#x1B0;ng b&#xF9; l&#x1EA1;i s&#x1EBD; kh&#xF4;ng th&#x1EC3; c&#xF3; gi&#xE1; tr&#x1ECB; kh&#x1EDF;i t&#x1EA1;o nh&#x1B0; <code>BehaviorSubject</code><br>
+<img src="files/s_replay_subject.png" alt="img_subject_replay"><br>
+Ekko ultimate shadow<br>
+<img src="files/replay_subject.jpg" alt="img_replay_subject_ekko"></li>
+</ul>
+</li>
+</ul>
+<h3 class="mume-header" id="34-schedulerhttpreactivexiodocumentationschedulerhtml">3.4 <a href="http://reactivex.io/documentation/scheduler.html">Scheduler</a>:</h3>
+
+<ul>
+<li>Ph&#x1EE5;c v&#x1EE5; cho vi&#x1EC7;c multithreading</li>
+<li>Khai b&#xE1;o <code>l&#xE0;m c&#xE1;i g&#xEC; &#x1EDF; &#x111;&#xE2;u</code><br>
+<img src="files/schedulers.png" alt="img_schedulers"></li>
+<li>So s&#xE1;nh
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Ti&#xEA;u ch&#xED;</th>
+<th style="text-align:center">ObserverOn</th>
+<th style="text-align:center">SubscribeOn</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">M&#x1EB7;c &#x111;&#x1ECB;nh</td>
+<td style="text-align:center">T&#x1B0;&#x1A1;ng &#x111;&#x1B0;&#x1A1;ng SubscribeOn</td>
+<td style="text-align:center">Lu&#x1ED3;ng n&#x1A1;i h&#xE0;m <code>subscribe</code> &#x111;&#x1B0;&#x1EE3;c g&#x1ECD;i</td>
+</tr>
+<tr>
+<td style="text-align:center">T&#xE1;c d&#x1EE5;ng</td>
+<td style="text-align:center">Downstream</td>
+<td style="text-align:center">Upstream</td>
+</tr>
+<tr>
+<td style="text-align:center">Ph&#x1EA1;m vi</td>
+<td style="text-align:center">T&#x1EA5;t c&#x1EA3; operation cho t&#x1EDB;i khi<br>xu&#x1EA5;t hi&#x1EC7;n <code>ObserverOn</code> kh&#xE1;c</td>
+<td style="text-align:center">Ch&#x1EC9; c&#xF3; t&#xE1;c d&#x1EE5;ng &#x1EDF; l&#x1EA7;n g&#x1ECD;i &#x111;&#x1EA7;u ti&#xEA;n<br>nh&#x1EEF;ng l&#x1EA7;n g&#x1ECD;i sau s&#x1EBD; kh&#xF4;ng c&#xF3; t&#xE1;c <br>d&#x1EE5;ng</td>
+</tr>
+<tr>
+<td style="text-align:center">S&#x1ED1; l&#x1EA7;n g&#x1ECD;i</td>
+<td style="text-align:center">0..N</td>
+<td style="text-align:center">0..1</td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+<h2 class="mume-header" id="4-usecase">4. Usecase</h2>
+
+<h3 class="mume-header" id="41-array-filter">4.1 Array <code>filter</code>:</h3>
+
+<p><img src="files/o_filter.png" alt="img_filter"></p>
+<h3 class="mume-header" id="42-dodge-multiclick-with-throtlefirst">4.2 Dodge multiclick with <code>throtleFirst</code></h3>
+
+<ul>
+<li>V&#x1EA5;n &#x111;&#x1EC1;: Ng&#x1B0;&#x1EDD;i d&#xF9;ng c&#xF3; th&#x1EC3; &#x1EA5;n li&#xEA;n t&#x1EE5;c v&#xE0;o 1 button trong th&#x1EDD;i gian ng&#x1EAF;n d&#x1EAB;n t&#x1EDB;i lu&#x1ED3;ng x&#x1EED; l&#xFD; b&#x1ECB; sai:
+<ul>
+<li>G&#x1EED;i form 2 l&#x1EA7;n li&#xEA;n ti&#x1EBF;p</li>
+<li>Duplicate chuy&#x1EC3;n m&#xE0;n h&#xEC;nh (ch&#x1ED3;ng ch&#xE9;o m&#xE0;n h&#xEC;nh, backpress nhi&#x1EC1;u m&#xE0;n h&#xEC;nh)</li>
+</ul>
+</li>
+<li>Gi&#x1EA3;i ph&#xE1;p: Khi nh&#x1EAD;n &#x111;&#x1B0;&#x1EE3;c s&#x1EF1; ki&#x1EC7;n <code>onClick</code> t&#x1EEB; 1 <code>Widget</code>, x&#x1EED; l&#xFD; event &#x111;&#x1ED3;ng th&#x1EDD;i t&#x1EA1;m d&#x1EEB;ng nh&#x1EAD;n <code>onClick</code> event t&#x1EEB; <code>Widget</code> &#x111;&#xF3; trong m&#x1ED9;t kho&#x1EA3;ng th&#x1EDD;i gian ng&#x1EAF;n<br>
+<img src="files/o_throtle_first.png" alt="img_throtlefirst"></li>
+<li>Th&#x1EF1;c thi:
+<ul>
+<li>T&#x1EA1;o ngu&#x1ED3;n ph&#xE1;t s&#x1EF1; ki&#x1EC7;n</li>
+</ul>
+<pre data-role="codeBlock" data-info="kotlin" class="language-kotlin"><span class="token keyword">val</span> onClickSubject <span class="token operator">:</span> PublishSubject<span class="token operator">&lt;</span>Long<span class="token operator">&gt;</span> <span class="token operator">=</span>  PublishSubject<span class="token punctuation">.</span><span class="token function">create</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+anyView<span class="token punctuation">.</span><span class="token function">setOnClickListener</span><span class="token punctuation">{</span>onClickSubject<span class="token punctuation">.</span><span class="token function">onNext</span><span class="token punctuation">(</span>System<span class="token punctuation">.</span><span class="token function">currentTimeMillis</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">}</span>
+</pre><ul>
+<li>X&#x1EED; l&#xFD; t&#x1EA1;m d&#x1EEB;ng nh&#x1EAD;n v&#xE0; &#x111;&#x103;ng k&#xFD; l&#x1EAF;ng nghe</li>
+</ul>
+<pre data-role="codeBlock" data-info="kotlin" class="language-kotlin"><span class="token keyword">var</span> disposable <span class="token operator">=</span> onClickSubject<span class="token punctuation">.</span><span class="token function">throtleFirst</span><span class="token punctuation">(</span><span class="token number">500</span><span class="token punctuation">,</span> TimeUnit<span class="token punctuation">.</span>MILLISECONDS<span class="token punctuation">)</span>
+  		<span class="token punctuation">.</span><span class="token function">subscribe</span><span class="token punctuation">{</span>
+  			<span class="token comment">//do onClickEvent</span>
+  		<span class="token punctuation">}</span>
+</pre><ul>
+<li><strong>Tips</strong>: Android c&#xF3; th&#x1EC3; d&#xF9;ng th&#x1B0; vi&#x1EC7;n RxBindings cho ph&#x1EA7;n t&#x1EA1;o ngu&#x1ED3;n ph&#xE1;t</li>
+</ul>
+</li>
+</ul>
+<h3 class="mume-header" id="43-searchview-textchanges-event-with-debounce">4.3 SearchView textchanges event with <code>debounce</code></h3>
+
+<ul>
+<li>V&#x1EA5;n &#x111;&#x1EC1;: Ng&#x1B0;&#x1EDD;i d&#xF9;ng nh&#x1EAD;p text v&#xE0;o 1 &#xF4; <code>SearchView</code>. Khi n&#xE0;o th&#xEC; n&#xEA;n g&#x1EED;i query t&#x1EDB;i repository &#x111;&#x1EC3; l&#x1EA5;y d&#x1EEF; li&#x1EC7;u v&#x1EC1; m&#xE0; v&#x1EAB;n &#x111;&#x1EA3;m b&#x1EA3;o
+<ul>
+<li>Kh&#xF4;ng g&#x1EED;i qu&#xE1; nhi&#x1EC1;u (Ng&#x1B0;&#x1EDD;i d&#xF9;ng c&#x1EE9; nh&#x1EAD;p text m&#x1EDB;i th&#xEC; l&#x1EA1;i g&#x1EED;i l&#xEA;n) nh&#x1EB1;m t&#x1ED1;i &#x1B0;u h&#xF3;a s&#x1EED; d&#x1EE5;ng pin, network</li>
+<li>T&#x1EF1; &#x111;&#x1ED9;ng t&#xEC;m ki&#x1EBF;m theo t&#x1EEB; kh&#xF3;a &#x111;&#x1B0;&#x1EE3;c nh&#x1EAD;p v&#xE0;o (gi&#x1EA3;m b&#x1EDB;t thao t&#xE1;c &#x1EA5;n n&#xFA;t search) nh&#x1EB1;m t&#x1ED1;i &#x1B0;u h&#xF3;a UI/UX</li>
+</ul>
+</li>
+<li>Gi&#x1EA3;i ph&#xE1;p: Sau khi ng&#x1B0;&#x1EDD;i d&#xF9;ng nh&#x1EAD;p xong th&#xEC; m&#x1EDB;i g&#x1EED;i query t&#x1EDB;i repository. S&#x1EF1; ki&#x1EC7;n ng&#x1B0;&#x1EDD;i d&#xF9;ng nh&#x1EAD;p xong &#x111;&#x1B0;&#x1EE3;c t&#xED;nh l&#xE0; sau m&#x1ED9;t kho&#x1EA3;ng th&#x1EDD;i gian ng&#x1EAF;n kh&#xF4;ng ph&#xE1;t sinh th&#xEA;m s&#x1EF1; ki&#x1EC7;n <code>textChanges</code><br>
+<img src="files/o_debounce.png" alt="img_debounce"></li>
+<li>Th&#x1EF1;c thi:
+<ul>
+<li>T&#x1EA1;o ngu&#x1ED3;n ph&#xE1;t s&#x1EF1; ki&#x1EC7;n:</li>
+</ul>
+<pre data-role="codeBlock" data-info="kotlin" class="language-kotlin"><span class="token keyword">val</span> keywordSubject <span class="token operator">=</span> BehaviorSubject<span class="token punctuation">.</span><span class="token function">create</span><span class="token punctuation">(</span><span class="token string">&quot;&quot;</span><span class="token punctuation">)</span>
+searchView<span class="token punctuation">.</span>textChangesEvent <span class="token operator">=</span> <span class="token punctuation">{</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>keyword <span class="token operator">==</span> <span class="token keyword">null</span> <span class="token operator">||</span> keyword<span class="token punctuation">.</span>isEmpty<span class="token punctuation">)</span> <span class="token keyword">return</span>
+    keywordSubject<span class="token punctuation">.</span><span class="token function">onNext</span><span class="token punctuation">(</span>keyword<span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+</pre><ul>
+<li>X&#x1EED; l&#xFD; s&#x1EF1; ki&#x1EC7;n:</li>
+</ul>
+<pre data-role="codeBlock" data-info="kotlin" class="language-kotlin"><span class="token keyword">var</span> disposable <span class="token operator">=</span> keywordSubject<span class="token punctuation">.</span><span class="token function">debounce</span><span class="token punctuation">(</span><span class="token number">500</span><span class="token punctuation">,</span> TimeUnit<span class="token punctuation">.</span>MILLISECONDS<span class="token punctuation">)</span>
+  		<span class="token punctuation">.</span><span class="token function">subscribe</span><span class="token punctuation">{</span>
+  			<span class="token comment">//query to repository</span>
+  		<span class="token punctuation">}</span>
+</pre><ul>
+<li><strong>Tips</strong>:
+<ul>
+<li>Android c&#xF3; th&#x1EC3; s&#x1EED; d&#x1EE5;ng th&#x1B0; vi&#x1EC7;n RxBindings cho ph&#x1EA7;n t&#x1EA1;o ngu&#x1ED3;n ph&#xE1;t</li>
+<li>&#x110;&#x1ED1;i v&#x1EDB;i <code>SearchView</code> c&#xF3; suggestion, th&#xEC; ph&#x1EA7;n query suggestion c&#xF3; th&#x1EC3; s&#x1EED; d&#x1EE5;ng <code>ThrotleFirst</code> ho&#x1EB7;c <code>ThrotleLast</code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 class="mume-header" id="44-upload-amazon-s3-presign-url-with-flatmap-and-concatmap">4.4 Upload Amazon S3 presign url with <code>flatMap</code> and <code>concatMap</code></h3>
+
+<ul>
+<li>V&#x1EA5;n &#x111;&#x1EC1;:
+<ul>
+<li>Upload &#x1EA3;nh kh&#xF4;ng ch&#x1EC9; l&#xE0; g&#x1ECD;i 1 api m&#xE0; ph&#x1EA3;i g&#x1ECD;i t&#x1EDB;i 3 api</li>
+<li>&#x110;&#x1ED9; ph&#x1EE9;c t&#x1EA1;p t&#x103;ng l&#xEA;n n&#x1EBF;u vi&#x1EC7;c upload kh&#xF4;ng ph&#x1EA3;i 1 m&#xE0; l&#xE0; nhi&#x1EC1;u file</li>
+<li>Th&#x1B0;&#x1EDD;ng &#x111;&#x1B0;&#x1EE3;c gi&#x1EA3;i quy&#x1EBF;t &#x1EDF; ph&#xED;a server hi&#x1EC7;u qu&#x1EA3; kh&#xF4;ng cao (lu&#x1ED3;ng byte data ph&#x1EA3;i &#x111;i l&#xF2;ng v&#xF2;ng)</li>
+</ul>
+</li>
+<li>Gi&#x1EA3;i ph&#xE1;p:
+<ul>
+<li>&#x110;&#x1B0;a ra c&#x1A1; ch&#x1EBF; chaining api (tu&#x1EA7;n t&#x1EF1;: l&#x1EA5;y url presign -&gt; th&#x1EF1;c hi&#x1EC7;n upload -&gt; l&#x1EA5;y th&#xF4;ng tin upload &#x111;&#x1B0;&#x1EE3;c, c&#x1EAD;p nh&#x1EAD;t l&#xEA;n server)</li>
+<li>Tu&#x1EA7;n t&#x1EEB; upload t&#x1EEB;ng file ho&#x1EB7;c &#x111;&#x1ED3;ng th&#x1EDD;i nhi&#x1EC1;u file (c&#xF3; gi&#x1EDB;i h&#x1EA1;n s&#x1ED1; file &#x111;&#x1ED3;ng th&#x1EDD;i)<br>
+<img src="files/o_flat_map.png" alt="img_flatmap"><br>
+<img src="files/o_concat_map.png" alt="img_concatmap"></li>
+</ul>
+</li>
+<li>Th&#x1EF1;c thi:
+<ul>
+<li>T&#x1EA1;o d&#x1EEF; li&#x1EC7;u file c&#x1EA7;n upload:</li>
+</ul>
+<pre data-role="codeBlock" data-info="kotlin" class="language-kotlin"><span class="token keyword">val</span> uploadObservable <span class="token operator">=</span> Observable<span class="token punctuation">.</span><span class="token function">fromArray</span><span class="token punctuation">(</span><span class="token operator">..</span><span class="token punctuation">.</span><span class="token punctuation">)</span>
+</pre><ul>
+<li>Chaining api v&#x1EDB;i flatMap v&#xE0; l&#x1EAF;ng nghe k&#x1EBF;t qu&#x1EA3;</li>
+</ul>
+<pre data-role="codeBlock" data-info="kotlin" class="language-kotlin">uploadObservable<span class="token punctuation">.</span><span class="token function">subscribeOn</span><span class="token punctuation">(</span>Schedulers<span class="token punctuation">.</span>io<span class="token punctuation">)</span>
+  <span class="token punctuation">.</span><span class="token function">flatMap</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token operator">::</span>doGetPresignUrlAndUpload<span class="token punctuation">,</span> <span class="token keyword">this</span><span class="token operator">::</span>updateModelWithUploadResult<span class="token punctuation">)</span>
+  <span class="token punctuation">.</span><span class="token function">flatMap</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token operator">::</span>doSubmitCompletedMode<span class="token punctuation">)</span>
+  <span class="token punctuation">.</span><span class="token function">observerOn</span><span class="token punctuation">(</span>AndroidSchedulers<span class="token punctuation">.</span><span class="token function">mainThread</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+  <span class="token punctuation">.</span><span class="token function">subscribe</span><span class="token punctuation">{</span>
+  	<span class="token comment">//update UI</span>
+  <span class="token punctuation">}</span>
+</pre><ul>
+<li><strong>Tips</strong>
+<ul>
+<li>Tu&#x1EA7;n t&#x1EF1; upload v&#x1EDB;i <code>concatMap</code></li>
+<li>N&#x1EBF;u upload &#x111;&#x1ED3;ng th&#x1EDD;i n&#xEA;n gi&#x1EDB;i h&#x1EA1;n s&#x1ED1; l&#x1B0;&#x1EE3;ng upload &#x111;&#x1ED3;ng th&#x1EDD;i v&#x1EDB;i limit c&#x1EE7;a <code>flatMap</code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 class="mume-header" id="45-optimize-loading-mails-body-with-switchmap">4.5 Optimize loading mail&apos;s body with <code>switchMap</code></h3>
+
+<ul>
+<li>Y&#xEA;u c&#x1EA7;u:
+<ul>
+<li>D&#x1EEF; li&#x1EC7;u danh s&#xE1;ch t&#x1EEB; repository ch&#x1EC9; l&#xE0; d&#x1EEF; li&#x1EC7;u c&#x1A1; b&#x1EA3;n (Title,...) m&#xE0; ch&#x1B0;a c&#xF3; n&#x1ED9;i dung</li>
+<li>Y&#xEA;u c&#x1EA7;u hi&#x1EC3;n th&#x1ECB; c&#xF3; title v&#xE0; 1 d&#xF2;ng ng&#x1EAF;n g&#x1ECD;n n&#x1ED9;i dung</li>
+<li>Api l&#x1EA5;y n&#x1ED9;i dung &#x111;&#x1A1;n l&#x1EBB; v&#x1EDB;i &#x111;&#x1EA7;u v&#xE0;o l&#xE0; 1 <code>item</code> v&#xE0; &#x111;&#x1EA7;u ra <code>item c&#xF3; body</code></li>
+</ul>
+</li>
+<li>V&#x1EA5;n &#x111;&#x1EC1;:
+<ul>
+<li>T&#x1ED1;i &#x1B0;u h&#xF3;a t&#x1EA3;i d&#x1EEF; li&#x1EC7;u chi ti&#x1EBF;t &#x111;&#x1EC3; tr&#xE1;nh d&#x1B0; th&#x1EEB;a</li>
+<li>Hi&#x1EC3;n th&#x1ECB; d&#x1EEF; li&#x1EC7;u &#x1EDF; m&#x1EE9;c &#x111;&#x1ED9; nhanh nh&#x1EA5;t c&#xF3; th&#x1EC3;</li>
+</ul>
+</li>
+<li>Gi&#x1EA3;i ph&#xE1;p:<br>
+<img src="files/o_switch_map.png" alt="img_switchmap">
+<ul>
+<li>L&#x1EA5;y d&#x1EEF; li&#x1EC7;u c&#x1A1; b&#x1EA3;n t&#x1EEB; server</li>
+<li>Hi&#x1EC3;n th&#x1ECB; d&#x1EEF; li&#x1EC7;u c&#x1A1; b&#x1EA3;n</li>
+<li>Khi ng&#x1B0;&#x1EDD;i d&#xF9;ng scroll t&#x1EDB;i &#x111;&#xE2;u</li>
+<li>Th&#x1EF1;c hi&#x1EC7;n load body d&#x1EF1;a tr&#xEA;n item &#x111;ang hi&#x1EC3;n th&#x1ECB; tr&#xEA;n m&#xE0;n h&#xEC;nh</li>
+<li>D&#x1EEB;ng load v&#x1EDB;i c&#xE1;c item kh&#xE1;c (n&#x1EBF;u c&#xF3;)</li>
+<li>Load t&#x1EDB;i &#x111;&#xE2;u, c&#x1EAD;p nh&#x1EAD;t giao di&#x1EC7;n t&#x1EDB;i &#x111;&#xF3;</li>
+</ul>
+</li>
+<li>Th&#x1EF1;c thi:</li>
+</ul>
+<pre data-role="codeBlock" data-info="kotlin" class="language-kotlin"></pre><h2 class="mume-header" id="5-references">5. References:</h2>
+
+<ul>
+<li>Design pattern: <a href="https://refactoring.guru/design-patterns/catalog">https://refactoring.guru/design-patterns/catalog</a></li>
+<li>About functional programing: <a href="https://medium.com/javascript-scene/master-the-javascript-interview-what-is-functional-programming-7f218c68b3a0">https://medium.com/javascript-scene/master-the-javascript-interview-what-is-functional-programming-7f218c68b3a0</a></li>
+<li>Meme: <a href="https://imgflip.com/memegenerator/129315248/No---Yes">https://imgflip.com/memegenerator/129315248/No---Yes</a></li>
+</ul>
+<h2 class="mume-header" id="6-advanced-topics">6. Advanced topics</h2>
+
+<ul>
+<li>Hot and Cold observables</li>
+<li>Subject, when to use, when not to use?</li>
+<li>Map vs FlatMap vs ConcatMap vs SwitchMap</li>
+<li>Throtle vs Debounce</li>
+<li>Error Handling</li>
+</ul>
+
+      </div>
+      
+      
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    </body></html>

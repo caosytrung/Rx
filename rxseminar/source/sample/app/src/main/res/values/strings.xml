@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Rx Sample</string>
+    <string name="dodge_multi_clicks">Dodge multi clicks</string>
+    <string name="debounce_search_view">Debounce search view</string>
+    <string name="sequence_presign_url_upload">Sequence presign url upload</string>
+    <string name="optimize_loading_body_mail">Optimize loading body mail</string>
+    <string name="copyright">© 2020 fshdn19</string>
+    <string name="clickcount">ClickCount: %1$d</string>
+    <string name="eventcount">EventCount: %1$d</string>
+    <string name="debounce_time">%1$dms</string>
+</resources>

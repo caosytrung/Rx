@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/img_icon"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:adjustViewBounds="true"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintWidth_percent="0.33"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.2"
+            tools:src="@mipmap/ic_launcher_foreground" />
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintTop_toBottomOf="@id/img_icon"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/lbl_copyright">
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:layout_marginBottom="30dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:orientation="vertical">
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btn_dodge_multi_clicks"
+                    android:text="@string/dodge_multi_clicks"
+                    style="@style/HomeButton" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btn_debouce_search_view"
+                    android:text="@string/debounce_search_view"
+                    style="@style/HomeButton" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btn_sequence_upload"
+                    android:text="@string/sequence_presign_url_upload"
+                    style="@style/HomeButton" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btn_optimize_body_mail"
+                    android:text="@string/optimize_loading_body_mail"
+                    style="@style/HomeButton" />
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+        </androidx.core.widget.NestedScrollView>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/lbl_copyright"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1"
+            android:textSize="12sp"
+            android:text="@string/copyright"
+            android:textColor="@android:color/darker_gray" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

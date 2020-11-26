@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="2dp"
+        app:cardCornerRadius="2dp"
+        app:cardElevation="2dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/img_thumb"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:scaleType="centerCrop"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintDimensionRatio="1:1"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.0"
+                tools:foreground="@color/foregroundShadow"
+                tools:src="@tools:sample/backgrounds/scenic" />
+
+            <ProgressBar
+                android:id="@+id/progress_presign"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:indeterminate="true"
+                android:indeterminateTint="@android:color/white"
+                app:layout_constraintBottom_toBottomOf="@id/img_thumb"
+                app:layout_constraintEnd_toEndOf="@id/img_thumb"
+                app:layout_constraintStart_toStartOf="@id/img_thumb"
+                app:layout_constraintTop_toTopOf="@id/img_thumb" />
+
+            <ProgressBar
+                android:id="@+id/progress_upload"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:indeterminate="true"
+                android:indeterminateTint="@android:color/white"
+                app:layout_constraintBottom_toBottomOf="@id/img_thumb"
+                app:layout_constraintEnd_toEndOf="@id/img_thumb"
+                app:layout_constraintStart_toStartOf="@id/img_thumb"
+                app:layout_constraintTop_toTopOf="@id/img_thumb" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/img_state"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:tint="@android:color/white"
+                android:layout_margin="10dp"
+                tools:src="@drawable/ic_action_cloud_done"
+                app:layout_constraintBottom_toBottomOf="@id/img_thumb"
+                app:layout_constraintEnd_toEndOf="@id/img_thumb" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+</layout>

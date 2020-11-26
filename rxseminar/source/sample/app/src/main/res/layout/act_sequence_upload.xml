@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerview"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginEnd="5dp"
+            android:layout_marginBottom="15dp"
+            app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:spanCount="3"
+            tools:listitem="@layout/item_image_upload" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/btn_sequence_upload"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="30dp"
+            android:backgroundTint="@color/colorPrimary"
+            android:src="@drawable/ic_action_cloud_upload"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/btn_limit_concurrent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            app:layout_goneMarginBottom="50dp"
+            app:layout_goneMarginEnd="30dp"
+            android:backgroundTint="@color/colorPrimary"
+            app:layout_constraintBottom_toTopOf="@id/btn_sequence_upload"
+            app:layout_constraintEnd_toEndOf="@id/btn_sequence_upload"
+            tools:src="@drawable/ic_run_sequence" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/btn_using_observable"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            app:layout_goneMarginBottom="50dp"
+            app:layout_goneMarginEnd="30dp"
+            android:backgroundTint="@color/colorPrimary"
+            app:layout_constraintBottom_toTopOf="@id/btn_limit_concurrent"
+            app:layout_constraintEnd_toEndOf="@id/btn_limit_concurrent"
+            tools:src="@drawable/ic_action_observable" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
